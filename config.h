@@ -61,6 +61,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *lightupcmd[] = { "xbacklight", "-inc", "5", NULL };
 static const char *lightdowncmd[] = { "xbacklight", "-dec", "5", NULL };
+static const char *touchpadcmd[] = {"touchpad_toggle.sh", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -69,6 +70,7 @@ static Key keys[] = {
 	{ MODKEY,           XK_q,       spawn,          {.v = slockcmd } },
 	{ 0,                0x1008FF02, spawn,          {.v = lightupcmd } },
 	{ 0,                0x1008FF03, spawn,          {.v = lightdowncmd } },
+    { MODKEY,           XK_p,       spawn,          {.v = touchpadcmd} },
 	{ MODKEY,           XK_b,       togglebar,      {0} },
 	{ MODKEY,           XK_j,       focusstack,     {.i = +1 } },
 	{ MODKEY,           XK_k,       focusstack,     {.i = -1 } },
