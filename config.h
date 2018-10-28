@@ -3,15 +3,16 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int minwsz    = 20;       /* Minimal heigt of a client for smfact */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Iosevka Term:size=11" };
 static const char dmenufont[]       = "Iosevka Term:size=11";
-static const char col_gray1[]       = "#0c0d0e";
-static const char col_gray2[]       = "#0c0d0e";
-static const char col_gray3[]       = "#b7b8b9";
-static const char col_gray4[]       = "#0c0d0e";
-static const char col_cyan[]        = "#3182bd";
+static const char col_gray1[]       = "#1d1f21";
+static const char col_gray2[]       = "#1d1f21";
+static const char col_gray3[]       = "#c5c8c6";
+static const char col_gray4[]       = "#1d1f21";
+static const char col_cyan[]        = "#81a2be";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -33,6 +34,7 @@ static const Rule rules[] = {
 
 /* layout(s) */
 static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
+static const float smfact    = 0.00; /* factor of tiled clients [0.00..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
@@ -78,6 +80,8 @@ static Key keys[] = {
 	{ MODKEY,           XK_x,       incnmaster,     {.i = -1 } },
 	{ MODKEY,           XK_h,       setmfact,       {.f = -0.05} },
 	{ MODKEY,           XK_l,       setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask, XK_h,       setsmfact,      {.f = +0.05} },
+	{ MODKEY|ShiftMask, XK_l,       setsmfact,      {.f = -0.05} },
 	{ MODKEY|ShiftMask, XK_Return,  zoom,           {0} },
 	{ MODKEY,           XK_Tab,     view,           {0} },
 	{ MODKEY,           XK_w,       killclient,     {0} },
